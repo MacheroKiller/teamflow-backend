@@ -1,0 +1,42 @@
+services:
+  backend:
+    image: teamflow-backend:latest
+    container_name: teamflow-backend
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/teamflow
+      SPRING_DATASOURCE_USERNAME: teamflow
+      SPRING_DATASOURCE_PASSWORD: ${DB_PASSWORD}
+      JWT_SECRET: ${JWT_SECRET}
+    ports:
+      - "8082:8080"
+    networks:
+      - internal
+
+  db:
+    image: postgres:17-alpine
+    container_name: teamflow-backend-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: teamflow
+      POSTGRES_USER: teamflow
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - teamflow_backend_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U teamflow -d teamflow"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    networks:
+      - internal
+
+networks:
+  internal:
+    driver: bridge
+
+volumes:
+  teamflow_backend_data:
