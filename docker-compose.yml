@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres:17-alpine
+    container_name: teamflow-db-dev
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: teamflow
+      POSTGRES_USER: teamflow
+      POSTGRES_PASSWORD: dev_only_password
+    ports:
+      - "5433:5432"
+    volumes:
+      - teamflow_postgres_data:/var/lib/postgresql/data
+
+volumes:
+  teamflow_postgres_data:
