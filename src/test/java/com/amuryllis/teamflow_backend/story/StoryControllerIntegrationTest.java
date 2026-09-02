@@ -2,6 +2,7 @@ package com.amuryllis.teamflow_backend.story;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import com.amuryllis.teamflow_backend.auth.dto.LoginResponse;
 import com.amuryllis.teamflow_backend.project.Project;
 import com.amuryllis.teamflow_backend.project.ProjectRepository;
 import com.amuryllis.teamflow_backend.story.dto.StoryResponse;
@@ -71,7 +72,7 @@ class StoryControllerIntegrationTest {
             .exchange()
             .expectStatus()
             .isOk()
-            .expectBody(com.amuryllis.teamflow_backend.auth.LoginResponse.class)
+            .expectBody(LoginResponse.class)
             .returnResult()
             .getResponseBody()
             .token();
