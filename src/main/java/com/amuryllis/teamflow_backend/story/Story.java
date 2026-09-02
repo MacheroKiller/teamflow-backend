@@ -1,6 +1,7 @@
 package com.amuryllis.teamflow_backend.story;
 
 import com.amuryllis.teamflow_backend.project.Project;
+import com.amuryllis.teamflow_backend.story.enums.StoryStatus;
 import com.amuryllis.teamflow_backend.user.AppUser;
 import jakarta.persistence.*;
 import java.time.OffsetDateTime;
@@ -39,8 +40,7 @@ public class Story {
   @Column(name = "updated_at", nullable = false)
   private OffsetDateTime updatedAt;
 
-  protected Story() {
-  }
+  protected Story() {}
 
   public Story(Project project, String title, String description) {
     this.project = project;

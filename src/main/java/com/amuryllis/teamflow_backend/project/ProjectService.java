@@ -1,5 +1,6 @@
 package com.amuryllis.teamflow_backend.project;
 
+import com.amuryllis.teamflow_backend.project.dto.ProjectRequest;
 import com.amuryllis.teamflow_backend.workspace.Workspace;
 import com.amuryllis.teamflow_backend.workspace.WorkspaceRepository;
 import java.util.List;
@@ -26,10 +27,11 @@ public class ProjectService {
 
   @Transactional
   public Project create(ProjectRequest request) {
-    Workspace workspace = workspaceRepository
-        .findById(request.workspaceId())
-        .orElseThrow(
-            () -> new NoSuchElementException("Workspace not found: " + request.workspaceId()));
+    Workspace workspace =
+        workspaceRepository
+            .findById(request.workspaceId())
+            .orElseThrow(
+                () -> new NoSuchElementException("Workspace not found: " + request.workspaceId()));
 
     Project project = new Project(workspace, request.name());
     return projectRepository.save(project);

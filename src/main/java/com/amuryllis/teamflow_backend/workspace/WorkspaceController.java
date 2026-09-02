@@ -1,5 +1,6 @@
 package com.amuryllis.teamflow_backend.workspace;
 
+import com.amuryllis.teamflow_backend.workspace.dto.WorkspaceRequest;
 import jakarta.validation.Valid;
 import java.util.List;
 import java.util.NoSuchElementException;

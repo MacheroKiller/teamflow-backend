@@ -1,5 +1,7 @@
 package com.amuryllis.teamflow_backend.auth;
 
+import com.amuryllis.teamflow_backend.auth.dto.LoginRequest;
+import com.amuryllis.teamflow_backend.auth.dto.LoginResponse;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;

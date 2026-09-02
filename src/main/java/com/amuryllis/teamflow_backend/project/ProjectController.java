@@ -1,5 +1,7 @@
 package com.amuryllis.teamflow_backend.project;
 
+import com.amuryllis.teamflow_backend.project.dto.ProjectRequest;
+import com.amuryllis.teamflow_backend.project.dto.ProjectResponse;
 import jakarta.validation.Valid;
 import java.util.List;
 import org.springframework.http.HttpStatus;

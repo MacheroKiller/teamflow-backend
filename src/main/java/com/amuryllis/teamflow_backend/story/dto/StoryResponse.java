@@ -1,5 +1,7 @@
-package com.amuryllis.teamflow_backend.story;
+package com.amuryllis.teamflow_backend.story.dto;
 
+import com.amuryllis.teamflow_backend.story.Story;
+import com.amuryllis.teamflow_backend.story.enums.StoryStatus;
 import java.time.OffsetDateTime;
 
 public record StoryResponse(

@@ -1,4 +1,4 @@
-package com.amuryllis.teamflow_backend.story;
+package com.amuryllis.teamflow_backend.story.enums;
 
 public enum StoryStatus {
   TODO,
